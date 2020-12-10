@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<style>
+        table, th  {
+            border: 0px solid black;
+            border-collapse: collapse;
+        }
+        td{
+        margin: 20px;
+        }
+    </style>
+<table style="width:90%">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Status</th>
+            <th>Published Year</th>
+        </tr>
+        <tr>
+            <td>{{ book.book_title }}</td>
+            <td>{{ book.author_name }}</td>
+            <td>{{ book.book_status }}</td>
+            <td>{{ book.published_date }}</td>
+
+        </tr>
+    </table>
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<style>
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.add{
+border: 3px solid silver;
+padding:5px;
+}
+
+</style>
+<form action="{% url 'search' %}" method="GET">
+                            <div id="custom-search" class="top-search-bar">
+                                <input class="form-control" type="text"
+                                       placeholder="Search.." id="search_box"
+                                name="book_title" value="{{ values.book_title }}">
+                                <button type="submit">Search</button>
+                            </div>
+                            </form>
+<table>
+    <h3><a href="{% url 'book_create' %}" class ="add">Add New Book</a></h3>
+    <th>Title</th>
+    <th>Status</th>
+    <th>Author</th>
+    <th>Update User</th>
+    <th>Delete User</th>
+    {% for i in book_info %}
+    <tr>
+        <td><a href="{% url 'book_read' i.id %}">{{i.book_title}}</a></td>
+        <td>{{i.book_status}}</td>
+        <td>{{i.author_name }}</td>
+        <td><a href="{% url 'updatebook' i.pk %}">Update</a></td>
+        <td><a href="{% url 'delete_book' i.pk %}">Delete</a></td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

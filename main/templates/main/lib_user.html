@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+            <h5 class="card-header">Bootstrap Validation Form</h5>
+            <div class="card-body">
+                <form method="post" class="needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                            {% csrf_token %}
+                            <table style="width:90%">
+        <tr>
+            <th>Books Name</th>
+            <th>Customer Name</th>
+            <th>Taken Date</th>
+            <th>Return Date</th>
+        </tr>
+        <tr>
+            <td>{{ form.book }}</td>
+            <td>{{ form.customer }}</td>
+            <td>{{ form.take_date }}</td>
+            <td>{{ form.give_date }}</td>
+
+        </tr>
+    </table>
+                                            </div>
+
+
+                                        <div class="form-row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <div class="form-group">
+                                                    <div class="form-check">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                                <button class="btn btn-primary" type="submit">Submit form</button>
+                                            </div>
+                                        </div>
+                    </div>
+                </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- end validation form -->
+                        <!-- ============================================================== -->
+{% endblock %}

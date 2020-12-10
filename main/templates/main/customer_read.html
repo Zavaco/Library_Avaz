@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<style>
+        table {
+            border: 1px solid gray;
+            border-bottom: 0px
+
+        }
+        th{
+        border: 1px solid silver;
+        }
+        td{
+        margin: 20px;
+        border:1 px solid silver;
+
+        }
+
+    </style>
+<table style="width:90%">
+        <tr>
+            <th>Name</th>
+            <th>E-mail</th>
+            <th>Taken Book</th>
+            <th>Image</th>
+        </tr>
+        <tr>
+            <td>{{ customer.user_name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.book_info }}</td>
+            <td><img src="{{ customer.user_image.url }}" ></td>
+
+        </tr>
+    </table>
+
+
+
+
+
+
+
+
+{% endblock %}

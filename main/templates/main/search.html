@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h1>
+    Search results
+</h1>
+<ul>
+
+    {% if result %}
+    {% for result in result%}
+
+    <li><a href="{% url 'book_read' result.id %}">{{result.book_title }}</a></li>
+{% endfor %}
+    {% endif %}
+
+</ul>
+{% endblock %}

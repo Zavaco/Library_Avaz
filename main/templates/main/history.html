@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<style>
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.add{
+border: 3px solid silver;
+padding:5px;
+}
+h1{
+text-align:center;
+}
+
+</style>
+<h1>Returned Books History</h1>
+<table>
+    <th>User Name</th>
+    <th>Book Title</th>
+    <th>Taken Date</th>
+    <th>Returned Date</th>
+    <th>Update</th>
+    <th>Delete</th>
+
+    {% for el in order %}
+    <tr>
+        <td>{{ el.customer }}</td>
+        <td>{{el.book}}</td>
+        <td>{{el.take_date}}</td>
+        <td>{{ el.give_date }}</td>
+        <td><a href="{% url 'update_order' el.pk %}">Update</a></td>
+        <td><a href="{% url 'delete_order' el.pk %}">Delete</a></td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
